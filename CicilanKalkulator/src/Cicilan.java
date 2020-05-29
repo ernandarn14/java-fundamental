@@ -19,9 +19,11 @@ public class Cicilan {
 
     public void setHargaAwal(int hargaAwal) {
         if (hargaAwal >= 1_000_000 && hargaAwal <= 100_000_000) {
-        throw new IllegalArgumentException("Harga minimal 1.000.000");
+            this.hargaAwal = hargaAwal;
+        } else {
+            throw new IllegalArgumentException("Harga minimal 1.000.000");
         }
-        this.hargaAwal = hargaAwal;
+        
     }
 
     public int getDurasiCicilan() {
@@ -29,10 +31,11 @@ public class Cicilan {
     }
 
     public void setDurasiCicilan(int durasiCicilan) {
-        if (durasiCicilan < 0) {
+        if (durasiCicilan >= 1) {
+            this.durasiCicilan = durasiCicilan;
+        } else {
             throw new IllegalArgumentException("Durasi cicilan minimal 1");
         }
-        this.durasiCicilan = durasiCicilan;
     }
 
     public double getBunga() {
@@ -40,10 +43,12 @@ public class Cicilan {
     }
 
     public void setBunga(double bunga) {
-        if (bunga <= 0) {
+        if (bunga >= 0) {
+            this.bunga = bunga;
+        } else {
             throw new IllegalArgumentException("Bunga cicilan minimal 0");
         }
-        this.bunga = bunga;
+        
     }
 
     public static double hitungBayaranPerBulan(int hargaAwal, int durasiCicilan, double bunga) {
