@@ -1,26 +1,17 @@
 package CicilanKalkulator.src;
 
-import java.util.Scanner;
-// import java.util.Locale;
 
 public class App {
-    static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
-        while (true) {
-            int hargaAwal = (int) Console.readInputNumber("Harga Awal: ");
-            int durasiCicilan = (int) Console.readInputNumber("Durasi Cicilan: ");
-            int bunga = (int) Console.readInputNumber("Bunga: ");
+            int hargaAwal = (int) Console.readInputNumber("Harga Awal: ", 1_000_000, 100_000_000);
+            int durasiCicilan = (int) Console.readInputNumber("Durasi Cicilan: ", 1);
+            int bunga = (int) Console.readInputNumber("Bunga: ", 0);
 
-            double bayaranPerBulan = Cicilan.hitungBayaranPerBulan(hargaAwal, durasiCicilan, bunga);
-            TampilBayar.tampilBayaran(bayaranPerBulan);
-            Cicilan.hitungSisaBayaranPerBulan(hargaAwal, durasiCicilan, bunga, bayaranPerBulan);
+            Cicilan cicil = new Cicilan(hargaAwal, durasiCicilan, bunga);
+            TampilBayar report = new TampilBayar(cicil);
 
-            System.out.println("Ulang? (Y/T)");
-            String option = scanner.next();
-            if (option.equalsIgnoreCase("T")) {
-                break;
-            }
-        }
+            report.tampilBayaran();
+            report.tampilSisaBayaranPerBulan(hargaAwal, durasiCicilan, bunga);
     }
 }
