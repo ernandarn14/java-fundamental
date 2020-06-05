@@ -1,6 +1,6 @@
 package InheritancePolimorfism.src;
 
-public class Input {
+public abstract class Input {
     private boolean isEnabled;
 
     // public Input(boolean isEnabled){

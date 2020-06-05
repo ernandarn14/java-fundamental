@@ -5,11 +5,11 @@ public class App {
         // Textbox textbox = new Textbox(false, "ini text");
         //  Textbox textbox = new Textbox();
 
-        Input input = new Input();
+        // Input input = new Input();
         // Input input2 = new Input();
 
         // System.out.println(input.equals(input2));
-        show(input);
+        // show(input);
 
         // textbox.setText("halo");
         // textbox.clear();
@@ -25,15 +25,15 @@ public class App {
         // System.out.println(poin.hashCode());
         // System.out.println(poin2.hashCode());
 
-        // Input[] inputs = { new Textbox(), new Checkbox()};
+        Input[] inputs = { new Textbox(), new Checkbox()};
 
         // for (var input : inputs) {
         //     input.render();
         // }
 
-        // for (int i=0; i < inputs.length; i++){
-        //     inputs[i].render();
-        // }
+        for (int i=0; i < inputs.length; i++){
+            inputs[i].render();
+        }
 
     }
     public static void show(Input input) {
